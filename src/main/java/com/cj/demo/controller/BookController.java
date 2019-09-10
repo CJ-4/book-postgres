@@ -25,7 +25,7 @@ public class BookController {
 
     @GetMapping("{id}")
     public ResponseEntity<Book> getBook(@PathVariable("id") Long id) {
-        return null;
+        return new ResponseEntity<>(bookRepository.findById(id).orElse(null), HttpStatus.ACCEPTED);
     }
 
     @GetMapping()
